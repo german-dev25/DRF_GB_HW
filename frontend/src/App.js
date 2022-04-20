@@ -20,6 +20,7 @@ componentDidMount() {
             this.setState(
                 {
                     'users': users
+
                 }
             )
     }).catch(error => console.log(error))
