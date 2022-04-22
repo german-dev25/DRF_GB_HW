@@ -11,11 +11,5 @@ class TodoModelSerializer(ModelSerializer):
             'created',
             'updated',
         )
-
-
-'''Сериализация модели Todo с
-представление данных (проект и пользователь) 
-в виде словарей, а не id'''
-# class TodoModelSerializerToString(TodoModelSerializer):
-#     # project = StringRelatedField()
-#     # user = StringRelatedField()
+    project = StringRelatedField()
+    user = StringRelatedField()

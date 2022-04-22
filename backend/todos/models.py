@@ -5,6 +5,20 @@ from users.models import User
 
 
 class Todo(models.Model):
+    DRAFT = 'DR'
+    SUB_TO_WORK = 'TO'
+    CHECK = 'CH'
+    DONE = 'DO'
+    CLOSE = 'X'
+
+    STATUS_CHOICES = (
+        (DRAFT, 'Черновик'),
+        (SUB_TO_WORK, 'Передано в работу'),
+        (CHECK, 'Проверяется'),
+        (DONE, 'Выполнено'),
+        (CLOSE, 'Закрыто'),
+    )
+
     class Meta:
         verbose_name = 'Заметка'
         verbose_name_plural = 'Заметки'
@@ -26,8 +40,14 @@ class Todo(models.Model):
         max_length=512,
         blank=False,
     )
-    is_active = models.BooleanField(
+    status = models.CharField(
         verbose_name='Статус',
+        choices=STATUS_CHOICES,
+        max_length=2,
+        default='DR'
+    )
+    is_active = models.BooleanField(
+        verbose_name='В работе',
         default=False,
     )
     created = models.DateTimeField(
