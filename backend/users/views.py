@@ -1,5 +1,6 @@
 from rest_framework.mixins import ListModelMixin, RetrieveModelMixin, UpdateModelMixin
 from rest_framework.pagination import LimitOffsetPagination
+from rest_framework.permissions import DjangoModelPermissions
 from rest_framework.renderers import BrowsableAPIRenderer, JSONRenderer
 from rest_framework.viewsets import GenericViewSet
 from config.settings import REST_FRAMEWORK
@@ -20,6 +21,8 @@ class UserModelViewSet(ListModelMixin,
     '''Возможность просмотра списка и каждого пользователя в
     отдельности, можно вносить изменения, нельзя удалять и создавать
     на базе GenericViewSet'''
+
+    permission_classes = [DjangoModelPermissions]
 
     serializer_class = UserModelSerializer
     queryset = User.objects.all()

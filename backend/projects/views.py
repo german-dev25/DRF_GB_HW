@@ -1,4 +1,5 @@
 from rest_framework.pagination import LimitOffsetPagination
+from rest_framework.permissions import DjangoModelPermissions
 from rest_framework.renderers import BrowsableAPIRenderer, JSONRenderer
 from rest_framework.viewsets import ModelViewSet
 from .models import Project
@@ -13,6 +14,7 @@ class ProjectModelViewSet(ModelViewSet):
     '''Представление на базе ModelViewSet, позволяющее использовать все
     REST API-запросы'''
 
+    permission_classes = [DjangoModelPermissions]
     serializer_class = ProjectModelSerializer
     queryset = Project.objects.all()
 

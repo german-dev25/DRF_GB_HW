@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'django_filters',
+    'rest_framework.authtoken',
 
     'users.apps.UsersConfig',
     'projects.apps.ProjectsConfig',
@@ -149,9 +150,22 @@ REST_FRAMEWORK = {
         'django_filters.rest_framework.DjangoFilterBackend',
     ),
 
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+    ],
+
+
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ]
+
     # 'DEFAULT_PARSER_CLASSES': (
     #     'djangorestframework_camel_case.parser.CamelCaseFormParser',
     #     'djangorestframework_camel_case.parser.CamelCaseMultiPartParser',
     #     'djangorestframework_camel_case.parser.CamelCaseJSONParser',
     # ),
 }
+
