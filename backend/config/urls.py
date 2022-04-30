@@ -18,7 +18,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include(router.urls)),
-    path('api-token-auth/', views.obtain_auth_token),
+    path('api-auth-token/', views.obtain_auth_token),
     path('jwt-token-refresh/', TokenRefreshView.as_view()),
     path('jwt-token/', TokenObtainPairView.as_view()),
 ]

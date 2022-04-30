@@ -24,7 +24,7 @@ class TodoModelViewSet(CreateModelMixin,
     выбранные REST API-запросы (аналогично ModelViewSet) с измененным
     миксином '''
 
-    permission_classes = [DjangoModelPermissions]
+    # permission_classes = [DjangoModelPermissions]
     serializer_class = TodoModelSerializer
     queryset = Todo.objects.all()
 

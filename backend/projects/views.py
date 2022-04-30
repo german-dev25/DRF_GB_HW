@@ -14,7 +14,7 @@ class ProjectModelViewSet(ModelViewSet):
     '''Представление на базе ModelViewSet, позволяющее использовать все
     REST API-запросы'''
 
-    permission_classes = [DjangoModelPermissions]
+    # permission_classes = [DjangoModelPermissions]
     serializer_class = ProjectModelSerializer
     queryset = Project.objects.all()
 
