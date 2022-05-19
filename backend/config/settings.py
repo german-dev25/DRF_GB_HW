@@ -47,11 +47,16 @@ INSTALLED_APPS = [
     'django_filters',
     'rest_framework.authtoken',
     'drf_yasg',
+    'graphene_django',
 
     'users.apps.UsersConfig',
     'projects.apps.ProjectsConfig',
     'todos.apps.TodosConfig',
 ]
+
+GRAPHENE = {
+    'SCHEMA': 'todos.schema.schema'
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

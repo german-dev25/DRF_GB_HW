@@ -22,7 +22,7 @@ class UserModelViewSet(ListModelMixin,
     отдельности, можно вносить изменения, нельзя удалять и создавать
     на базе GenericViewSet'''
 
-    # permission_classes = [DjangoModelPermissions]
+    permission_classes = [DjangoModelPermissions]
     serializer_class = UserModelSerializer
 
     queryset = User.objects.all()
